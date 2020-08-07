@@ -190,6 +190,7 @@
   .prevent:阻止事件的默认行为 event.preventDefault()
   .stop:停止事件冒泡 event.stopPropagation()
   
+  ```
 ```
   
   - 更多事件修饰符:    https://cn.vuejs.org/v2/api/#v-on
@@ -216,7 +217,7 @@
 
  如果没有value属性，那么select收集到的就是option里面的内容
 
-```javascript
+​```javascript
 	<select v-model="city">
       <option value="">未选择</option>
       <option v-for="city in cities" :key="city.id" :value="city.id">
@@ -668,7 +669,7 @@ copy-plugin
 
 extensions:[] 数组里面的内容可以省略,自动补全文件扩展名
 
-ignore:[ ]j忽略
+ignore:[ ]忽略
 
 ## 搭建脚手架流程
 
@@ -833,9 +834,7 @@ extensions[]
 >
 >  问题：如果其他组件有相同的样式，就会覆盖
 >
->  解决：scoped
->
->  让样式只在当前组件生效
+>  解决：scoped,让样式只在当前组件生效
 >
 >  devtools 用于调试vue开发者工具
 >
@@ -856,17 +855,17 @@ extensions[]
 >  props(标签属性)方案,父组件给子组件传递动态数据
 >
 >  - 默认props属性组件不接收,如果需要接收的话,需要手动声明接收
->  - 里面写要声明接收的属性
+>- 里面写要声明接收的属性
 >  - key 接收的属性
 >  - value 接收属性值的类型 Array
 >  - 组件实例对象上就会添加一个属性comments,值为父组件传过来的值
->
+>  
 >  mounted()组件挂载完毕的函数,
 >
 >  submit事件
 >
 >  - 按钮的type类型就是submit
->  - 点击按钮就会触发form表单的submit事件
+>- 点击按钮就会触发form表单的submit事件
 
 - 接收一个参数createElement,具有模板编译能力
 - 使用简单
@@ -959,7 +958,7 @@ extensions[]
 
       
 
-    - 子组件实例对象上就会添加响应的属性,就可以直接使用了
+    - 子组件实例对象上就会添加相应的属性,就可以直接使用了
 
 
 
@@ -998,7 +997,7 @@ main.js ,基本模板,很少变化
 
 三个组件TodoFooder,TodoHeader,TodoList
 
-每个组件放入响应的相应的html代码,
+每个组件放入相应的html代码,
 
 父组件引入子组件,并且引入哪个组件就要注册哪个组件,
 
@@ -1568,17 +1567,17 @@ const mutations = {
 
 
 
-> **&位运算符,进行二进制的位运算**
+> **&:位运算符,进行二进制的位运算**
 >
 > store对象,上面有所有的状态数据和更新状态数据的方法
 >
 > store对象
 >
->  \*  就有所有的状态数据和更新状态数据的方法
+> \*  就有所有的状态数据和更新状态数据的方法
 >
->  \*  store.state / store.getters
+> \*  store.state / store.getters
 >
->  \*  store.dispatch('xxx')
+> \*  store.dispatch('xxx')
 >
 > INCREMENT是Mutations 里面的方法,用来更新state里面的数据
 >
@@ -1591,6 +1590,8 @@ const mutations = {
 > 如果action中只有调用commit方法,就应该直接更新
 >
 > 如果action中需要做一些其他事情(发送ajax请求),就应该间接更新
+>
+> 映射就是将vuex中的数据映射到组件中
 
 ```vue
 state,      // 等同于 `store.state`，若在模块中则为局部状态
@@ -1610,7 +1611,7 @@ mapState(['xxx'])会将对象展开,作为属性添加到computed中
 
 ![image-20200804165241070](C:\Users\zenghao\AppData\Roaming\Typora\typora-user-images\image-20200804165241070.png)
 
-![image-20200804170114283](C:\Users\zenghao\AppData\Roaming\Typora\typora-user-images\image-20200804170114283.png)
+
 
  \* store对象
 
@@ -1700,6 +1701,22 @@ index.js
    把store暴露出去
 ```
 
+> **更新vuex，先要触发actions**
+>
+> **actions会自动触发mutations**
+>
+>  **mutations会更新数据**
+>
+> **this.$store.dispatch(type, data)** 
+>
+> **type 是action函数名称，data传给action函数的数据**
+>
+>  如果action中只有调用commit方法，就应该直接更新
+>
+> 如果action中需要做一些其他事（发送ajax请求..），就应该间接更新
+
+
+
 
 
 > 组件化和模块化是可以共存的
@@ -1750,15 +1767,9 @@ mutations中
 
 
 
-\
-
-??????????????????????????????????
-
 ![image-20200805125632370](C:\Users\zenghao\AppData\Roaming\Typora\typora-user-images\image-20200805125632370.png)
 
-"isFirstView", "isLoading", "users", "error"
 
-![image-20200805132534585](C:\Users\zenghao\AppData\Roaming\Typora\typora-user-images\image-20200805132534585.png)
 
 ## 前端路由
 
@@ -1820,8 +1831,6 @@ mutations中
 
 ​        2. 只会更新浏览器地址 path
 
-
-
 ​       以下两个样式，当你选中router-link生效
 
 ​        exact-active-class 
@@ -1847,7 +1856,7 @@ mutations中
 
 ![image-20200805183216801](C:\Users\zenghao\AppData\Roaming\Typora\typora-user-images\image-20200805183216801.png)
 
-一旦注入,在实例对象上就会多this.$route和this.$router
+一旦注入,在实例对象上就会多**this.$route和this.$router**
 
 ![image-20200805183441807](C:\Users\zenghao\AppData\Roaming\Typora\typora-user-images\image-20200805183441807.png)
 
@@ -1861,3 +1870,125 @@ newValue就是$route
 
 一旦更新detail属性,页面就会重新渲染成最新的内容
 
+> keep-alive  保存缓存
+>
+> 适用场景:组件内部数据不需要实时更新
+>
+> 如果希望数据实时更新,不能用缓存,反之就缓存起来
+>
+> - include:"组件名称"只能缓存指定组件
+> - exclude:"组件名称" 除了指定组件以外,其他组件都缓存
+> - 优点:性能好
+
+
+
+前端有切换浏览器地址方式
+
+- 路由器导航链接  router-link
+- 编程时导航链接   this.$router.push(path)
+  - 如果只需要切换地址,一般用router-link
+  - 如果需要切换地址,还需要其他操作(发送请求,保存数据),就会用第二种方式
+  - push是去一个新地址,不管去没去过都可以去,forward前提是去过的地址才可以去
+
+new Vue({router}) 注入router,所有组件实例对象就有两个属性
+
+- this.$route  包含当前路由路径的配置(动态的,路径发生变化就变化)
+
+- this.$router 包含操作浏览器历史记录的方法
+
+
+
+- this.$router.push(path) 添加一条浏览器历史记录
+- repalce(path)替换一条浏览器历史记录
+- back()回退上一条浏览器历史记录
+- forward()前进下一条浏览器历史记录,如果没有就不走了
+
+> 这里面的是哈希值
+>
+> ```
+> #/home/messages/detail/5
+> ```
+>
+> caniuse查一切APi的兼容性
+
+前端路由模式
+
+- hash 
+
+  - 兼容性好
+  - 地址栏带#
+  - 请求地址:http://localhost:9527/#/home/messages
+  - 刷新浏览器会发送请求,重新请求地址里面的资源,请求地址:http://localhost:9527
+  - 地址中包含hash参数:/#/home/messages是一种特殊的参数
+  - 服务器是以:http://localhost:9527/index.html返回响应,浏览器通过解析hash参数,会加载响应的路由组件
+
+- history
+
+  - 兼容性稍差(ie10以下不支持,可以接受,因为框架不支持ie9以下)
+  - 地址栏不带#
+
+  请求地址：http://localhost:9527/home/messages
+
+   当你刷新浏览器会向服务器发送请求，请求地址：http://localhost:9527/home/messages
+
+   服务器没办法处理，服务器只能处理 http://localhost:9527/
+
+   所以返回 404
+
+   history模式刷新浏览器会出现404，找不到页面
+
+   解决：只要服务器找不到，就默认返回index.html
+
+  - 配置:devServer:{}
+
+> #后面的是不会发送请求的
+
+![image-20200807102858439](C:\Users\zenghao\AppData\Roaming\Typora\typora-user-images\image-20200807102858439.png)
+
+> 为了上线,都是以根路径触发
+>
+> history可以和锚点共存
+>
+> configurable: false, // 是否可以重新配置/删除
+>
+> ​    enumerable: true, // 是否可以被for in遍历
+>
+> for in 默认会遍历原型上的属性
+
+什么是响应式(reactive)数据?
+
+- 读取时可以读取值
+- 设置时也可以更新数据,也会更新用户界面
+
+data里面的数据
+
+- 基本数据类型
+  - 注意:直接往this上添加属性,不是响应式数据
+- 引用数据类型
+  - object
+  - array
+  - data中的对象里面已存在数据是响应式 , 新添加的不是
+
+> 先定义再修改就是响应式
+
+### 数据代理
+
+将data数据代理到实例对象
+
+给实例对象添加配置对象options
+
+将options中data数据赋值给实例对象_data属性
+
+遍历data数据，取出所有属性，进行数据代理
+
+数据代理就是通过Object.defineProperty给实例对象
+
+添加data中的属性，值通过get/set重新定义读和写方法
+
+get/set中实际上就是对_data中的数据（也就是原数据）进行操作
+
+ 此时我们就能通过实例对象直接操作data中的数据 
+
+**好处**: 通过vm对象就可以方便的操作data中的数据
+
+![image-20200807190954032](C:\Users\zenghao\AppData\Roaming\Typora\typora-user-images\image-20200807190954032.png)
