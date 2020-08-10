@@ -4,7 +4,7 @@
 - output 输出文件路径，必须为绝对路径，当前是多入口时，filename的文件名要写成变量
   - **path**:path.join(__dirname,'xxx')
   - **filename**:'xxx.js' /  '*[name]*.js'
-  - **publicPath**:'/'，静态文件的读取路径
+  - **publicPath**:'/'，规定服务器开始解析的目录
 - module 指定文件，使用loader 
 - alias 配置路径别名
 - plugin 功能扩展插件
